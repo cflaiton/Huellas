@@ -31,7 +31,7 @@ class enrutamiento {
 
         switch($i) {
             case 0:
-                $v="mision.php";
+                $v="formularioCrearNotas.php";
                 break;
             case 1:
                 $v="vision.php";
