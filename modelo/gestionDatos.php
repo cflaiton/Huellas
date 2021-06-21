@@ -124,6 +124,36 @@ class servicioDatos extends Conexion
         //     }
             return $user;
     }
-}
 
-?>
+    // Validar Correo
+
+    public function validarCorreo($correo) {
+        $consulta= $this->conexion->query("SELECT * FROM usuario where correo='".$correo."'");
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+
+       if ($resultado)
+          return true;
+          else
+          return false;
+
+   }
+
+   // Crear Notas
+
+   public function crearNotas($nombre, $correo, $nota1, $nota2, $nota3) {
+    $vacio = "null";
+    $sql ="INSERT INTO notas VALUES('".$vacio."','".$nombre."','".$correo."','".$nota1."','".$nota2."','".$nota3."')";
+    $resultado = $this->conexion->query($sql);
+    if ($resultado) {
+        $this->conexion->close();
+        return true;
+    } else {
+        $this->conexion->close();
+        return false;
+    }
+
+
+
+    }   
+
+}

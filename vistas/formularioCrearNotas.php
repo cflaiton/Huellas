@@ -20,16 +20,16 @@
       </div>
       <div class="x_content">
         <br />
-        
 
-        <form action="../controladores/usuarioCrearControlador.php" method="post">
 
-        <!-- // Desplegable -->
+        <form action="../controladores/usuarioCrearNotasControlador.php" method="post">
 
-        <div class="item form-group">
+          <!-- // Desplegable nombre traido desde la base de datos-->
+
+          <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align ">Nombre</label>
             <div class="col-md-6 col-sm-6 ">
-              <select class="form-control" name="rol">
+              <select class="form-control" name="nombre">
                 <option value="1">Cristian Laiton</option>
                 <option value="2">Fredy Forero</option>
                 <option value="3">Julian Marcelo</option>
@@ -43,42 +43,42 @@
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Correo <span class="required">*</span> </label>
             </label>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="last-name"  required="required" class="form-control" name="correo" >
+              <input type="text" id="last-name" required="required" class="form-control" name="correo">
             </div>
           </div>
 
-            <!-- // Nota 1 -->
+          <!-- // Nota 1 -->
 
           <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Nota 1 <span class="required">*</span> </label>
             </label>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="last-name"  required="required" class="form-control" name="nota1" >
+              <input type="text" id="last-name" required="required" class="form-control" name="nota1">
             </div>
           </div>
 
-           <!-- // Nota 2 -->
+          <!-- // Nota 2 -->
 
-           <div class="item form-group">
+          <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Nota 2 <span class="required">*</span> </label>
             </label>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="last-name"  required="required" class="form-control" name="nota2" >
+              <input type="text" id="last-name" required="required" class="form-control" name="nota2">
             </div>
           </div>
 
-           <!-- // Nota 3 -->
+          <!-- // Nota 3 -->
 
-           <div class="item form-group">
+          <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Nota 3 <span class="required">*</span> </label>
             </label>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" id="last-name"  required="required" class="form-control" name="nota3" >
+              <input type="text" id="last-name" required="required" class="form-control" name="nota3">
             </div>
           </div>
 
-            
-          
+
+
 
           <!-- // Botones -->
 
@@ -96,7 +96,18 @@
 
         if (isset($ErrorCodigo))
           echo "<div class='alert alert-danger' role='alert'> $ErrorCodigo </div>"
+
+
         ?>
+
+        <?php
+
+        if (isset($ExitoCodigo))
+          echo "<div class='alert alert-success' role='alert'> $ExitoCodigo </div>"
+
+
+        ?>
+
 
       </div>
     </div>
