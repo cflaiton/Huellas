@@ -66,6 +66,7 @@
                       <li><a href="../controladores/rutasControlador.php?rutaOpc=3&SubRutaOpc=31">Registrar</a></li>
                       <li><a href="../controladores/usuariosListarControlador.php">Listar </a></li>
                       <li><a href="../controladores/rutasControlador.php?rutaOpc=3&SubRutaOpc=0">Registrar Notas </a></li>
+                      <li><a href="../controladores/usuariosListarNotas.php">Listar Notas </a></li>
                     </ul>
                   </li>
                   

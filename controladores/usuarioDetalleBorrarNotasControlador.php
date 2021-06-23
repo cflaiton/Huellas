@@ -1,12 +1,12 @@
 <?php
-session_start();
 
+session_start();
 $id = $_GET['id'];
 //echo "ID o CODIGO recivido = ", $id ;
 
 require ('../modelo/gestionDatos.php');
 $datos = new servicioDatos();
-$usuario = $datos->consultarUsuario($id);
+$notas = $datos->consultarNotas($id);
 /*
 echo "<pre>";
 echo var_dump($usuario);
@@ -14,7 +14,10 @@ echo "</pre>";
 */
 
 $vista = "crud.php";
-$subVista ="borrarUsuario.php";
+$subVista ="borrarNotas.php";
 require ("../vistas/layout.php");
+
+
+
 
 ?>

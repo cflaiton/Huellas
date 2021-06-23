@@ -3,17 +3,16 @@
 session_start();
 require '../modelo/gestionDatos.php';
 
-$codigo=$_POST['codigo'];
+$id=$_POST['id'];
 
 
 $datos = new servicioDatos();
-
-$borrar = $datos->borrarUsuario($codigo);
+$borrar = $datos->borrarNotas($id);
 
 $listar = new servicioDatos();
-$listaUsuarios = $listar->obtenerUsuarios();
+$listaUsuarios = $listar->obtenerNotas();
 
-$subVista = "listarUsuarios.php";
+$subVista = "listarNotas.php";
 $vista = "crud.php";
 require "../vistas/layout.php"
 

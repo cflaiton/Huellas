@@ -20,6 +20,17 @@ class servicioDatos extends Conexion
 
     }
 
+    // Obtener Notas
+
+    public function obtenerNotas() {
+
+        $consulta= $this->conexion->query('SELECT * FROM notas');
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        $this->conexion->close();
+        return $resultado;
+
+    }
+
 
     public function crearUsuario($codigo, $nombre, $correo, $contrasena,$rol) {
 
@@ -45,7 +56,6 @@ class servicioDatos extends Conexion
 
     }
 
-
     public function consultarUsuario ($codigo) {
         $consulta= $this->conexion->query("SELECT * FROM usuario where codigo='".$codigo."'");
        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
@@ -54,8 +64,30 @@ class servicioDatos extends Conexion
 
     }
 
+    public function consultarNotas ($id) {
+        $consulta= $this->conexion->query("SELECT * FROM notas where id='".$id."'");
+       $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+       $this->conexion->close();
+       return $resultado;
+
+    }
+
     public function actualizarUsuario($codigo, $nombre, $correo, $contrasena,$rol) { 
         $sql = "UPDATE usuario SET nombre = '".$nombre."',  correo = '".$correo."' ,  contrasena = '".$contrasena."',  rol = '".$rol."' WHERE codigo = '".$codigo."'  ";
+        $resultado = $this->conexion->query($sql);
+        if ($resultado) {
+            $this->conexion->close();
+            return true;
+        } else {
+            $this->conexion->close();
+            return false;
+        }
+    }
+
+    // Actualizar Notas
+
+    public function actualizarNotas($id, $nombre, $correo, $nota1,$nota2,$nota3) { 
+        $sql = "UPDATE notas SET nombreE = '".$nombre."',  correoE = '".$correo."' ,  nota1 = '".$nota1."', nota2 = '".$nota2."', nota3 = '".$nota3."' WHERE id = '".$id."'  ";
         $resultado = $this->conexion->query($sql);
         if ($resultado) {
             $this->conexion->close();
@@ -78,6 +110,22 @@ class servicioDatos extends Conexion
             return false;
         }
     }
+
+    // Borrar Notas
+
+    public function borrarNotas($id) { 
+        $sql = "DELETE FROM notas WHERE id = '".$id."'";
+        $resultado = $this->conexion->query($sql);
+        if ($resultado) {
+            $this->conexion->close();
+            return true;
+        } else {
+            $this->conexion->close();
+            return false;
+        }
+    }
+
+
 
     public function validarUsuario($correo,$contrasena) {
         
@@ -105,9 +153,9 @@ class servicioDatos extends Conexion
 
     public function usuarioLogueado($usuario){
 
-        if($usuario == "cflaiton@gmail.com"){
+        if($usuario == "cristian.laiton@umv.gov.co"){
             $user = array(
-            'usuario' => "cflaiton@gmail.com",
+            'usuario' => "cristian.laiton@umv.gov.co",
             'nombre' => " Cristian Laiton",
             'rol' => "Admin"
 
