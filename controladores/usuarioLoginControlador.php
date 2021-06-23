@@ -24,7 +24,7 @@ if( (isset($_POST['usuario'])) && (!empty($_POST['usuario'])) &&
 
             $_SESSION["Usuario"] = $logueado ['usuario'];
             $_SESSION["Nombre"] = $logueado ['nombre'];
-            $_SESSION["rol"] = $logueado ['rol'];
+            $_SESSION["Rol"] = $logueado ['rol'];
 
             $ErrorCodigo = "USUARIO LOGUEADO CORRECTAMENTE";
             require "../vistas/layout.php";

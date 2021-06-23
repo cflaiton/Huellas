@@ -6,35 +6,37 @@ require 'conexion.php';
 class servicioDatos extends Conexion
 {
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
 
-    public function obtenerUsuarios() {
+    public function obtenerUsuarios()
+    {
 
-        $consulta= $this->conexion->query('SELECT * FROM usuario');
+        $consulta = $this->conexion->query('SELECT * FROM usuario');
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
         $this->conexion->close();
         return $resultado;
-
     }
 
     // Obtener Notas
 
-    public function obtenerNotas() {
+    public function obtenerNotas()
+    {
 
-        $consulta= $this->conexion->query('SELECT * FROM notas');
+        $consulta = $this->conexion->query('SELECT * FROM notas');
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
         $this->conexion->close();
         return $resultado;
-
     }
 
 
-    public function crearUsuario($codigo, $nombre, $correo, $contrasena,$rol) {
+    public function crearUsuario($codigo, $nombre, $correo, $contrasena, $rol)
+    {
 
-        $sql ="INSERT INTO usuario VALUES(null,'".$nombre."','".$correo."','".$contrasena."','".$rol."')";
+        $sql = "INSERT INTO usuario VALUES(null,'" . $nombre . "','" . $correo . "','" . $contrasena . "','" . $rol . "')";
         $resultado = $this->conexion->query($sql);
         if ($resultado) {
             $this->conexion->close();
@@ -45,35 +47,36 @@ class servicioDatos extends Conexion
         }
     }
 
-    public function validarCodigo($codigo) {
-         $consulta= $this->conexion->query("SELECT * FROM usuario where codigo='".$codigo."'");
+    public function validarCodigo($codigo)
+    {
+        $consulta = $this->conexion->query("SELECT * FROM usuario where codigo='" . $codigo . "'");
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
         if ($resultado)
-           return true;
-           else
-           return false;
-
+            return true;
+        else
+            return false;
     }
 
-    public function consultarUsuario ($codigo) {
-        $consulta= $this->conexion->query("SELECT * FROM usuario where codigo='".$codigo."'");
-       $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
-       $this->conexion->close();
-       return $resultado;
-
+    public function consultarUsuario($codigo)
+    {
+        $consulta = $this->conexion->query("SELECT * FROM usuario where codigo='" . $codigo . "'");
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        $this->conexion->close();
+        return $resultado;
     }
 
-    public function consultarNotas ($id) {
-        $consulta= $this->conexion->query("SELECT * FROM notas where id='".$id."'");
-       $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
-       $this->conexion->close();
-       return $resultado;
-
+    public function consultarNotas($id)
+    {
+        $consulta = $this->conexion->query("SELECT * FROM notas where id='" . $id . "'");
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        $this->conexion->close();
+        return $resultado;
     }
 
-    public function actualizarUsuario($codigo, $nombre, $correo, $contrasena,$rol) { 
-        $sql = "UPDATE usuario SET nombre = '".$nombre."',  correo = '".$correo."' ,  contrasena = '".$contrasena."',  rol = '".$rol."' WHERE codigo = '".$codigo."'  ";
+    public function actualizarUsuario($codigo, $nombre, $correo, $contrasena, $rol)
+    {
+        $sql = "UPDATE usuario SET nombre = '" . $nombre . "',  correo = '" . $correo . "' ,  contrasena = '" . $contrasena . "',  rol = '" . $rol . "' WHERE codigo = '" . $codigo . "'  ";
         $resultado = $this->conexion->query($sql);
         if ($resultado) {
             $this->conexion->close();
@@ -86,8 +89,9 @@ class servicioDatos extends Conexion
 
     // Actualizar Notas
 
-    public function actualizarNotas($id, $nombre, $correo, $nota1,$nota2,$nota3) { 
-        $sql = "UPDATE notas SET nombreE = '".$nombre."',  correoE = '".$correo."' ,  nota1 = '".$nota1."', nota2 = '".$nota2."', nota3 = '".$nota3."' WHERE id = '".$id."'  ";
+    public function actualizarNotas($id, $nombre, $correo, $nota1, $nota2, $nota3)
+    {
+        $sql = "UPDATE notas SET nombreE = '" . $nombre . "',  correoE = '" . $correo . "' ,  nota1 = '" . $nota1 . "', nota2 = '" . $nota2 . "', nota3 = '" . $nota3 . "' WHERE id = '" . $id . "'  ";
         $resultado = $this->conexion->query($sql);
         if ($resultado) {
             $this->conexion->close();
@@ -99,8 +103,9 @@ class servicioDatos extends Conexion
     }
 
 
-    public function borrarUsuario($codigo) { 
-        $sql = "DELETE FROM usuario WHERE codigo = '".$codigo."'";
+    public function borrarUsuario($codigo)
+    {
+        $sql = "DELETE FROM usuario WHERE codigo = '" . $codigo . "'";
         $resultado = $this->conexion->query($sql);
         if ($resultado) {
             $this->conexion->close();
@@ -113,8 +118,9 @@ class servicioDatos extends Conexion
 
     // Borrar Notas
 
-    public function borrarNotas($id) { 
-        $sql = "DELETE FROM notas WHERE id = '".$id."'";
+    public function borrarNotas($id)
+    {
+        $sql = "DELETE FROM notas WHERE id = '" . $id . "'";
         $resultado = $this->conexion->query($sql);
         if ($resultado) {
             $this->conexion->close();
@@ -127,19 +133,20 @@ class servicioDatos extends Conexion
 
 
 
-    public function validarUsuario($correo,$contrasena) {
-        
-         //$rta = false;
+    public function validarUsuario($correo, $contrasena)
+    {
 
-         $consulta= $this->conexion->query("SELECT correo, contrasena FROM usuario where correo='".$correo."' AND contrasena ='".$contrasena."' ");
-         $rta = $consulta->fetch_all(MYSQLI_ASSOC);
-         $this->conexion->close();
-         return $rta;
+        //$rta = false;
+
+        $consulta = $this->conexion->query("SELECT correo, contrasena FROM usuario where correo='" . $correo . "' AND contrasena ='" . $contrasena . "' ");
+        $rta = $consulta->fetch_all(MYSQLI_ASSOC);
+        $this->conexion->close();
+        return $rta;
 
         // // Validacion con la base de
 
         // if  ($sql = "SELECT correo, contrasena FROM usuario WHERE correo='".$correo."' AND password='".$password."'") {
-            
+
         //     $rta = true;
         //     }
         //     return $rta;
@@ -151,57 +158,64 @@ class servicioDatos extends Conexion
         // return $rta;
     }
 
-    public function usuarioLogueado($usuario){
+    public function usuarioLogueado($usuario)
+    {
 
-        if($usuario == "cristian.laiton@umv.gov.co"){
+        if ($usuario == "cristian.laiton@umv.gov.co") {
             $user = array(
-            'usuario' => "cristian.laiton@umv.gov.co",
-            'nombre' => " Cristian Laiton",
-            'rol' => "Admin"
+                'usuario' => "cristian.laiton@umv.gov.co",
+                'nombre' => " Cristian Laiton",
+                'rol' => "Coordinador"
 
             );
-
         }
-        // else {
-        //     $user = array(
-        //         'usuario' => "superman",
-        //         'nombre' => "Clark knet",
-        //         'rol' => "Operario"
-                
-        //         );
-        //     }
-            return $user;
+        if ($usuario == "cflaiton@gmail.com") {
+            $user = array(
+                'usuario' => "cflaiton@gmail.com",
+                'nombre' => "Jesus Ropero",
+                'rol' => "Profesor"
+
+            );
+        }
+
+        if ($usuario == "julian@gmail.com") {
+            $user = array(
+                'usuario' => "julian@gmail.com",
+                'nombre' => "Julian",
+                'rol' => "Estudiante"
+
+            );
+        }
+
+        return $user;
     }
 
     // Validar Correo
 
-    public function validarCorreo($correo) {
-        $consulta= $this->conexion->query("SELECT * FROM usuario where correo='".$correo."'");
+    public function validarCorreo($correo)
+    {
+        $consulta = $this->conexion->query("SELECT * FROM usuario where correo='" . $correo . "'");
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
 
-       if ($resultado)
-          return true;
-          else
-          return false;
-
-   }
-
-   // Crear Notas
-
-   public function crearNotas($nombre, $correo, $nota1, $nota2, $nota3) {
-    $vacio = "null";
-    $sql ="INSERT INTO notas VALUES('".$vacio."','".$nombre."','".$correo."','".$nota1."','".$nota2."','".$nota3."')";
-    $resultado = $this->conexion->query($sql);
-    if ($resultado) {
-        $this->conexion->close();
-        return true;
-    } else {
-        $this->conexion->close();
-        return false;
+        if ($resultado)
+            return true;
+        else
+            return false;
     }
 
+    // Crear Notas
 
-
-    }   
-
+    public function crearNotas($nombre, $correo, $nota1, $nota2, $nota3)
+    {
+        $vacio = "null";
+        $sql = "INSERT INTO notas VALUES('" . $vacio . "','" . $nombre . "','" . $correo . "','" . $nota1 . "','" . $nota2 . "','" . $nota3 . "')";
+        $resultado = $this->conexion->query($sql);
+        if ($resultado) {
+            $this->conexion->close();
+            return true;
+        } else {
+            $this->conexion->close();
+            return false;
+        }
+    }
 }

@@ -24,9 +24,12 @@
       <td><?php echo $notas['nota1']?></td>
       <td><?php echo $notas['nota2']?></td>
       <td><?php echo $notas['nota3']?></td>
+
+      <?php if(isset($_SESSION["Rol"]) && $_SESSION["Rol"] == "Profesor" )  {?>
       <td> <a href="../controladores/usuarioDetalleNotasControlador.php?id=<?php echo $notas['id']?>"> Detalle </a> </td>
       <td> <a href="../controladores/usuarioDatosEditarNotasControlador.php?id=<?php echo $notas['id']?>"> Editar </a> </td>
-      <td> <a href="../controladores/usuarioDetalleBorrarNotasControlador.php?id=<?php echo $notas['id']?>"> Borrar </a> </td> 
+      <td> <a href="../controladores/usuarioDetalleBorrarNotasControlador.php?id=<?php echo $notas['id']?>"> Borrar </a> </td>
+      <?php  } ?>
     </tr>
 <?php
  }

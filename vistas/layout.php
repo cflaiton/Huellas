@@ -63,16 +63,27 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+
+                    <?php if(isset($_SESSION["Rol"]) && $_SESSION["Rol"] == "Coordinador")  {?>
+
                       <li><a href="../controladores/rutasControlador.php?rutaOpc=3&SubRutaOpc=31">Registrar</a></li>
                       <li><a href="../controladores/usuariosListarControlador.php">Listar </a></li>
+                      <?php  } ?>
+                      <?php if(isset($_SESSION["Rol"]) && $_SESSION["Rol"] == "Profesor" )  {?>
+
                       <li><a href="../controladores/rutasControlador.php?rutaOpc=3&SubRutaOpc=0">Registrar Notas </a></li>
                       <li><a href="../controladores/usuariosListarNotas.php">Listar Notas </a></li>
+                      <?php  } ?>
+
+                      <?php if(isset($_SESSION["Rol"]) && $_SESSION["Rol"] == "Estudiante" )  {?>
+                      <li><a href="../controladores/usuariosListarNotas.php">Listar Notas </a></li>
+                      <?php  } ?>
                     </ul>
                   </li>
                   
                 </ul>
               </div>
-              
+              <h2><?php echo $_SESSION ["Rol"]; ?></h2>
             </div>
             <!-- /sidebar menu -->
 
