@@ -15,8 +15,8 @@ if( (isset($_POST['usuario'])) && (!empty($_POST['usuario'])) &&
         $validar = $datos->validarUsuario($usuario,$password);
 
         if ($validar) {
-            
-             $logueado = $datos -> usuarioLogueado($usuario);
+            $datos1 = new servicioDatos();
+             $logueado = $datos1 -> usuarioLogueado($usuario);
 
             // echo "<pre>";
             // echo var_dump($logueado);
