@@ -161,33 +161,11 @@ class servicioDatos extends Conexion
     public function usuarioLogueado($usuario)
     {
 
-        if ($usuario == "cristian.laiton@umv.gov.co") {
-            $user = array(
-                'usuario' => "cristian.laiton@umv.gov.co",
-                'nombre' => " Cristian Laiton",
-                'rol' => "Coordinador"
+        $consulta = $this->conexion->query("select nombre, correo, nombreRol from usuario U inner join roles R on  U.rol = R.id where correo = '".$usuario."'");
 
-            );
-        }
-        if ($usuario == "cflaiton@gmail.com") {
-            $user = array(
-                'usuario' => "cflaiton@gmail.com",
-                'nombre' => "Jesus Ropero",
-                'rol' => "Profesor"
-
-            );
-        }
-
-        if ($usuario == "julian@gmail.com") {
-            $user = array(
-                'usuario' => "julian@gmail.com",
-                'nombre' => "Julian",
-                'rol' => "Estudiante"
-
-            );
-        }
-
-        return $user;
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        $this->conexion->close();
+        return $resultado;
     }
 
     // Validar Correo

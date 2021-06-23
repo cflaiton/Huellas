@@ -21,10 +21,15 @@ if( (isset($_POST['usuario'])) && (!empty($_POST['usuario'])) &&
             // echo "<pre>";
             // echo var_dump($logueado);
             // echo "<pre>";
+            foreach($logueado as $u){
+                
+                $_SESSION["Correo"] = $u ['correo'];
+                $_SESSION["Rol"] = $u ['nombreRol'];
+                $_SESSION["Nombre"] = $u ['nombre'];
+    
+            }
 
-            $_SESSION["Usuario"] = $logueado ['usuario'];
-            $_SESSION["Nombre"] = $logueado ['nombre'];
-            $_SESSION["Rol"] = $logueado ['rol'];
+            
 
             $ErrorCodigo = "USUARIO LOGUEADO CORRECTAMENTE";
             require "../vistas/layout.php";
