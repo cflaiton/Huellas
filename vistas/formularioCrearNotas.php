@@ -30,10 +30,14 @@
             <label class="col-form-label col-md-3 col-sm-3 label-align ">Nombre</label>
             <div class="col-md-6 col-sm-6 ">
               <select class="form-control" name="nombre">
-                <option value="1">Cristian Laiton</option>
-                <option value="2">Fredy Forero</option>
-                <option value="3">Julian Marcelo</option>
+                <option selected>Seleccione un alumno</option>
+                <?php
+                     foreach($listaUsuarios as $usuario){
+                 ?>
+                    <option value="<?php echo $usuario['codigo'] ?>"><?php echo $usuario['nombre'] ?></option>
+                 <?php } ?>
               </select>
+
             </div>
           </div>
 

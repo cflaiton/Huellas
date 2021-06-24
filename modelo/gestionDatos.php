@@ -21,6 +21,15 @@ class servicioDatos extends Conexion
         return $resultado;
     }
 
+    public function obtenerUsuariosAlumnos()
+    {
+
+        $consulta = $this->conexion->query('SELECT * FROM usuario where rol = 3');
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        $this->conexion->close();
+        return $resultado;
+    }
+
     // Obtener Notas
 
     public function obtenerNotas()
