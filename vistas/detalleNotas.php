@@ -1,3 +1,10 @@
+<?php
+//session_start();
+  if(!isset($_SESSION["Correo"] ) && !isset($_SESSION["id"] ) && !isset($_SESSION["Rol"] )&& !isset($_SESSION["Nombre"] )){
+    header("Location: ../vistas/login.php");
+    die();
+  }
+?>
 <p class="fs-2"> Detalle Usuario </p>
 
 <table class="table">
@@ -20,7 +27,7 @@
   ?>
     <tr>
       <th scope="row"><?php echo $u['id']?></th>
-      <td><?php echo $u['nombreE']?></td>
+      <td><?php echo $u['nombre']?></td>
       <td><?php echo $u['correoE']?></td>
       <td><?php echo $u['nota1']?></td>
       <td><?php echo $u['nota2']?></td>

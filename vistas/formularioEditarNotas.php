@@ -1,3 +1,10 @@
+<?php
+//session_start();
+  if(!isset($_SESSION["Correo"] ) && !isset($_SESSION["id"] ) && !isset($_SESSION["Rol"] )&& !isset($_SESSION["Nombre"] )){
+    header("Location: ../vistas/login.php");
+    die();
+  }
+?>
 <p class="fs-2"> Editar Datos  Usuario </p>
 
 <form class="row g-3" action="../controladores/usuarioEditarNotasControlador.php" method="post">
@@ -8,12 +15,14 @@
 
   <div class="col-12">
   <label class="form-label">Nombre</label>
-    <input type="text" class="form-control" name="nombre" placeholder="Nombre Apellido" value="<?php echo $nombre ?>" required>
+    <input type="text" class="form-control"  placeholder="Nombre Apellido" value="<?php echo $nombre ?>" disabled>
+    <input type="hidden"  name="nombre" value="<?php echo $nombreCod ?>" >
   </div>
 
   <div class="col-12">
   <label class="form-label">Correo</label>
-    <input type="email" class="form-control" name="correo" placeholder="usuario@dominio"  value="<?php echo $correo ?>" required>
+    <input type="email" class="form-control"  placeholder="usuario@dominio"  value="<?php echo $correo ?>" disabled>
+    <input type="hidden" name="correo"   value="<?php echo $correo ?>" >
   </div>
 
   <div class="col-12">

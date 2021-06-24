@@ -31,6 +31,7 @@ if( (isset($_POST['usuario'])) && (!empty($_POST['usuario'])) &&
             }
 
             
+            
 
             $ErrorCodigo = "USUARIO LOGUEADO CORRECTAMENTE";
             require "../vistas/layout.php";

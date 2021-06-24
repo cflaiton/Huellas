@@ -1,3 +1,10 @@
+<?php
+//session_start();
+  if(!isset($_SESSION["Correo"] ) && !isset($_SESSION["id"] ) && !isset($_SESSION["Rol"] )&& !isset($_SESSION["Nombre"] )){
+    header("Location: ../vistas/login.php");
+    die();
+  }
+?>
 <p class="fs-2"> Editar Datos  Usuario </p>
 
 <form class="row g-3" action="../controladores/usuarioEditarControlador.php" method="post">

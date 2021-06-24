@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+//session_start();
+if(!isset($_SESSION["Correo"] ) && !isset($_SESSION["id"] ) && !isset($_SESSION["Rol"] )&& !isset($_SESSION["Nombre"] )){
+    header("Location: vistas/login.php");
+}
 
 $id = $_GET['id'];
 //echo "ID o CODIGO recivido = ", $id ;
@@ -13,7 +16,8 @@ $notas = $datos->consultarNotas($id);
 
 foreach ($notas  as $u) {
     $id = $u['id'];
-    $nombre = $u['nombreE'];
+    $nombreCod = $u['nombreE'];
+    $nombre = $u['nombre'];
     $correo = $u['correoE'];
     $nota1 = $u['nota1'];
     $nota2 = $u['nota2'];

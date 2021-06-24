@@ -35,7 +35,7 @@ class servicioDatos extends Conexion
     public function obtenerNotas()
     {
 
-        $consulta = $this->conexion->query('SELECT * FROM notas');
+        $consulta = $this->conexion->query('select id,nombreE,correoE,nota1,nota2,nota3, nombre from notas N inner join usuario U on N.nombreE = U.codigo');
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
         $this->conexion->close();
         return $resultado;
@@ -44,7 +44,7 @@ class servicioDatos extends Conexion
     public function obtenerNotasAlumno($codigo)
     {
 
-        $consulta = $this->conexion->query('SELECT * FROM notas where nombreE = '.$codigo);
+        $consulta = $this->conexion->query('SELECT id,nombreE,correoE,nota1,nota2,nota3, nombre from notas N inner join usuario U on N.nombreE = U.codigo where nombreE = '.$codigo);
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
         $this->conexion->close();
         return $resultado;
@@ -86,7 +86,7 @@ class servicioDatos extends Conexion
 
     public function consultarNotas($id)
     {
-        $consulta = $this->conexion->query("SELECT * FROM notas where id='" . $id . "'");
+        $consulta = $this->conexion->query("SELECT id,nombreE,correoE,nota1,nota2,nota3, nombre from notas N inner join usuario U on N.nombreE = U.codigo where id='" . $id . "'");
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
         $this->conexion->close();
         return $resultado;
@@ -203,8 +203,8 @@ class servicioDatos extends Conexion
 
     public function crearNotas($nombre, $correo, $nota1, $nota2, $nota3)
     {
-        $vacio = "null";
-        $sql = "INSERT INTO notas VALUES('" . $vacio . "','" . $nombre . "','" . $correo . "','" . $nota1 . "','" . $nota2 . "','" . $nota3 . "')";
+        
+        $sql = "INSERT INTO  notas (nombreE,correoE,nota1,nota2,nota3) VALUES('".$nombre."','".$correo."','".$nota1."','".$nota2."','".$nota3."')";
         $resultado = $this->conexion->query($sql);
         if ($resultado) {
             $this->conexion->close();

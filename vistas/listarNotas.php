@@ -1,3 +1,10 @@
+<?php
+//session_start();
+  if(!isset($_SESSION["Correo"] ) && !isset($_SESSION["id"] ) && !isset($_SESSION["Rol"] )&& !isset($_SESSION["Nombre"] )){
+    header("Location: ../vistas/login.php");
+    die();
+  }
+?>
 <table class="table">
   <thead>
     <tr>
@@ -19,7 +26,7 @@
   ?>
     <tr>
       <th scope="row"><?php echo $notas['id']?></th>
-      <td><?php echo $notas['nombreE']?></td>
+      <td><?php echo $notas['nombre']?></td>
       <td><?php echo $notas['correoE']?></td>
       <td><?php echo $notas['nota1']?></td>
       <td><?php echo $notas['nota2']?></td>

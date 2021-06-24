@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+//session_start();
+if(!isset($_SESSION["Correo"] ) && !isset($_SESSION["id"] ) && !isset($_SESSION["Rol"] )&& !isset($_SESSION["Nombre"] )){
+    header("Location: vistas/login.php");
+}
 
 
 require '../modelo/gestionDatos.php';
@@ -22,23 +25,17 @@ if( (isset($_POST['nombre'])) && (!empty($_POST['nombre'])) &&
         $validar = $datos->validarCorreo($cor);
 
         if ($validar) { 
-
+            
             $insertarNotas = $datos->crearNotas($nom,$cor,$n1,$n2,$n3);
             
-            // echo "<pre>";
-            // echo var_dump($insertarNotas);
-            // echo "<pre>";
-
-
-            //    if ($inserarUsuario) {
-            //       $listar = new servicioDatos();
-            //        $listaUsuarios = $listar->obtenerUsuarios();
-            //        $subVista = "listarNotas.php";
-            //        } else {
-            //            $subVista = "formularioCrearNotas.php";
-            //     }
-            $ExitoCodigo = "Las notas se registraron Exitosamente";
+            if($insertarNotas){
+                $ExitoCodigo = "Las notas se registraron Exitosamente";
                 $vista = "formularioCrearNotas.php"; 
+            }else{
+                $ErrorCodigo = "Error registrando notas.";
+                $vista = "formularioCrearNotas.php"; 
+            }
+            
          } 
          else {
                 $ErrorCodigo = "Error no encuentra correo ".$cor;
