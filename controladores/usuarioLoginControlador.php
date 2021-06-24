@@ -24,6 +24,7 @@ if( (isset($_POST['usuario'])) && (!empty($_POST['usuario'])) &&
             foreach($logueado as $u){
                 
                 $_SESSION["Correo"] = $u ['correo'];
+                $_SESSION["id"] = $u ['codigo'];
                 $_SESSION["Rol"] = $u ['nombreRol'];
                 $_SESSION["Nombre"] = $u ['nombre'];
     

@@ -76,7 +76,7 @@
                       <?php  } ?>
 
                       <?php if(isset($_SESSION["Rol"]) && $_SESSION["Rol"] == "Estudiante" )  {?>
-                      <li><a href="../controladores/usuariosListarNotas.php">Listar Notas </a></li>
+                      <li><a href="../controladores/usuariosListarNotas.php?id=<?php echo $_SESSION ['id']; ?>">Listar Notas </a></li>
                       <?php  } ?>
                     </ul>
                   </li>

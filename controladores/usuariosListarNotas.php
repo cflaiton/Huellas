@@ -1,13 +1,13 @@
 <?php
-session_start();
-require '../modelo/gestionDatos.php';
+    session_start();
+    require '../modelo/gestionDatos.php';
+
+    $codigo = $_GET['id'];
+    $datos = new servicioDatos();
+    $listaUsuarios = $datos->obtenerNotasAlumno($codigo);
 
 
-$datos = new servicioDatos();
-$listaUsuarios = $datos->obtenerNotas();
-
-
-$vista = "listarNotas.php";
-require "../vistas/layout.php"
+    $vista = "listarNotas.php";
+    require "../vistas/layout.php"
 
 ?>

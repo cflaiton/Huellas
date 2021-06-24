@@ -41,6 +41,15 @@ class servicioDatos extends Conexion
         return $resultado;
     }
 
+    public function obtenerNotasAlumno($codigo)
+    {
+
+        $consulta = $this->conexion->query('SELECT * FROM notas where nombreE = '.$codigo);
+        $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
+        $this->conexion->close();
+        return $resultado;
+    }
+
 
     public function crearUsuario($codigo, $nombre, $correo, $contrasena, $rol)
     {
@@ -170,7 +179,7 @@ class servicioDatos extends Conexion
     public function usuarioLogueado($usuario)
     {
 
-        $consulta = $this->conexion->query("select nombre, correo, nombreRol from usuario U inner join roles R on  U.rol = R.id where correo = '".$usuario."'");
+        $consulta = $this->conexion->query("select codigo,nombre, correo, nombreRol from usuario U inner join roles R on  U.rol = R.id where correo = '".$usuario."'");
 
         $resultado = $consulta->fetch_all(MYSQLI_ASSOC);
         $this->conexion->close();
