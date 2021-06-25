@@ -102,7 +102,6 @@
             <label class="col-form-label col-md-3 col-sm-3 label-align ">Rol</label>
             <div class="col-md-6 col-sm-6 ">
               <select class="form-control" name="rol">
-                <option value="1">Coordinador</option>
                 <option value="2">Profesor</option>
                 <option value="3">Estudiante</option>
               </select>

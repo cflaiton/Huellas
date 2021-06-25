@@ -51,7 +51,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="../images/img.jpeg" alt="..." class="img-circle profile_img">
+                <img src="../images/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -85,16 +85,18 @@
                       <li><a href="../controladores/usuariosListarNotas.php?id=<?php echo $_SESSION ['id']; ?>">Listar Notas </a></li>
                       <?php  } ?>
                     </ul>
+                    <li><a href="../controladores/usuarioControlador.php?rutaOpc=1&SubRutaOpc=0"><i class="fa fa-users"></i> Nosotros </a>
                   </li>
                   
                 </ul>
               </div>
-              <h2><?php echo $_SESSION ["Rol"]; ?></h2>
+              
             </div>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
+            <h2><?php echo $_SESSION ["Rol"]; ?></h2>
               <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
@@ -122,7 +124,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../images/img.jpeg" alt=""> <?php echo $_SESSION ["Nombre"]; ?>
+                    <img src="../images/user.png" alt=""> <?php echo $_SESSION ["Nombre"]; ?>
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Perfil</a>
