@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 require '../modelo/gestionDatos.php';
 
