@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 
 require '../modelo/gestionDatos.php';
@@ -22,7 +22,7 @@ if( (isset($_POST['usuario'])) && (!empty($_POST['usuario'])) &&
             // echo var_dump($logueado);
             // echo "<pre>";
             foreach($logueado as $u){
-                
+                //session_start();
                 $_SESSION["Correo"] = $u ['correo'];
                 $_SESSION["id"] = $u ['codigo'];
                 $_SESSION["Rol"] = $u ['nombreRol'];
