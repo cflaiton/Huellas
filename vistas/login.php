@@ -65,7 +65,7 @@
 
                 <div>
                   <h1><i class="fa fa-paw"></i> Colegio Huellas </h1>
-                  <p>©2021 Todos Los derechos REservados</p>
+                  <p>©2021 Todos Los derechos Reservados</p>
                 </div>
               </div>
             </form>
