@@ -1,8 +1,8 @@
 <?php  // datos de conexion 
 
 define('DB_HOST','localhost');
-define('DB_USER','userSena');
-define('DB_PWD','123456789');
+define('DB_USER','root');
+define('DB_PWD','');
 define('DB_NAME','tallerphp');
 
 ?>

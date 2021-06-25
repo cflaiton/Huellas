@@ -37,7 +37,7 @@
 
   <div class="col-12">
   <label class="form-label">Nota3</label>
-    <input type="text" class="form-control" name="nota3" placeholder="xxxxxx"  value="<?php echo $nota2 ?>" required>
+    <input type="text" class="form-control" name="nota3" placeholder="xxxxxx"  value="<?php echo $nota3 ?>" required>
   </div>
 
   <div class="col-12">
